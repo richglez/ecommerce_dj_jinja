@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% block content %}
+<h1>Sign in</h1>
+
+{{ error }}
+
+<form action="/signin/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button>Sign in</button>
+</form>
+
+{% if user.is_authenticated %}
+<p>Logged in as {{ user.username }}</p>
+{% else %}
+<p>Not logged in</p>
+
+{% endif %} {% endblock %}

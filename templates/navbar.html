@@ -1,0 +1,21 @@
+<nav>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/cart">Cart</a>
+        </li>
+
+        {% if user.is_authenticated %}
+        <li>
+            <a href="/logout">Log out</a>
+        </li>
+
+        {% else %}
+        <li>
+            <a href="/signup">Sign up / Log in</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>

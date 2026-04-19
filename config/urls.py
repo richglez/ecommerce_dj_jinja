@@ -6,6 +6,8 @@ from catalog import views as catalog_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("signup/", user_views.signup, name="signup"),
-    path("", catalog_views.catalog, name="home"),
+    path("signup/", user_views.signup_view, name="signup"),
+    path("signin/", user_views.signin_view, name="signin"),
+    path("logout/", user_views.logout_view, name="logout"),
+    path("", catalog_views.catalog, name="index"),
 ]

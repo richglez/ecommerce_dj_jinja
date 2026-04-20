@@ -124,7 +124,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 
-LOGIN_URL = "/sigin/"
+LOGIN_URL = "/signin/"
 
 STRIPE_SECRET_KEY = "sk_test_your_key_here"
 STRIPE_PUBLISHABLE_KEY = "pk_test_your_key_here"

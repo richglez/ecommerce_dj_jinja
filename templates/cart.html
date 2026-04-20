@@ -51,7 +51,8 @@
 
     <div class="text-end mt-3">
         <a href="/" class="btn btn-outline-secondary">Continue Shopping</a>
-        <a href="#" class="btn btn-primary">Checkout</a>
+        <a href="{% url 'create_order' %}" class="btn btn-primary">Checkout</a>
+        <!-- Requiere autenticación (redirect a signin si no está logueado -->
     </div>
 
     {% else %}

@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Mis Pedidos{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Mis Pedidos</h2>
+    {% if pedidos %}
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Pedido #</th>
+                    <th>Fecha</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pedido in pedidos %}
+                <tr>
+                    <td>{{ pedido.id }}</td>
+                    <td>{{ pedido.date|date:"d/m/Y H:i" }}</td>
+                    <td>${{ pedido.total }}</td>
+                    <td>{{ pedido.get_status_display }}</td>
+                    <td><a href="{% url 'detail_order' pedido.id %}" class="btn btn-sm btn-primary">Ver</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="mt-3">No tienes pedidos yet.</p>
+    {% endif %}
+</div>
+{% endblock %}

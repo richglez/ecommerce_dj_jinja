@@ -16,7 +16,7 @@ urlpatterns = [
     path("logout/", user_views.logout_view, name="logout"),
     path("cart/", cart_views.cart_view, name="cart"),
     path("cart/add/<int:product_id>/", cart_views.add_to_cart, name="add_to_cart"),
-    path("cart/remove/<int:product_id>/", cart_views.remove_from_cart, name="remove_from_cart"),
+    path("cart/remove/<int:product_id>/", cart_views.remove_from_cart, name="remove_from_cart"),    
     path("cart/update/<int:product_id>/", cart_views.update_cart, name="update_cart"),
     path("payments/", include(payments_urls)),
     path("orders/", include(orders_urls)),

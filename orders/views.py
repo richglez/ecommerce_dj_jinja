@@ -16,6 +16,8 @@ def list_orders(request):
 def detail_order(request, pedido_id):
     pedido = get_object_or_404(Pedido, id=pedido_id, customer=request.user)
     items = pedido.items.all()
+    for item in items:
+        item.subtotal = item.quantity * item.price
     return render(request, "orders/detail.html", {"pedido": pedido, "items": items})
 
 

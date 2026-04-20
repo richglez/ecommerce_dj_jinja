@@ -36,11 +36,12 @@ ecommerce_dj_jinja/
 
 | Path       | View              | Description                |
 | ---------- | ----------------- | ------------------------- |
-| `/`        | catalog.catalog  | Product catalog          |
-| `/admin/`  | admin site       | Django admin panel       |
+| `/`        | catalog.catalog   | Product catalog          |
+| `/admin/`  | admin site        | Django admin panel       |
 | `/signup/` | users.signup_view | User registration        |
 | `/signin/` | users.signin_view | User login              |
 | `/logout/` | users.logout_view | User logout             |
+| `/cart/`   | cart_views        | User logout             |
 
 ## Setup
 
@@ -57,7 +58,3 @@ python manage.py createsuperuser
 # Start server
 python manage.py runserver
 ```
-
-## Known Issues
-
-- **settings.py:126** - `LOGIN_URL` has a typo: `/sigin/` should be `/signin/`

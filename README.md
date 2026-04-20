@@ -1,46 +1,63 @@
-## Ecommerce Django Auth
-This is a ecommerce project scalable, using authentication. MVT (Model-View-Template).
+# Ecommerce Django
 
-# Features
+E-commerce project built with Django (MVT architecture) featuring user authentication and shopping cart functionality.
 
+## Tech Stack
 
-# Tech Stack
+- **Django 6.0.4**
+- **SQLite** (db.sqlite3)
+- Python templates (Jinja2)
 
+## Features
+
+- User authentication (signup, signin, logout)
+- Product catalog
+- Shopping cart
+- Order management
+- Inventory tracking
+- Payment processing
 
 ## Project Structure
-```
-└─── src/
-     └─── cart/          # User cart (Cart, CartItem, Cart View/Template)
-     └─── catalog/       # Public catalog (Catalog View/Template)
-     └─── config/        # Gloabl django config (settings.py / urls.py)
-     └─── inventory/     # Store inventory (Stock status...)
-     └─── orders/        # User orders
-     └─── payments/      # User system payments
-     └─── products/      # Store list of products (Product)
-     └─── templates/     # Global Layouts for all the apps
-     └─── users/         # Signin/Signup/Logout Views/Templates
-```
 
+```
+ecommerce_dj_jinja/
+├── cart/          # Shopping cart (Cart, CartItem models)
+├── catalog/       # Product catalog view
+├── config/       # Django settings and URLs
+├── inventory/    # Stock management
+├── orders/       # Order (Pedido) model
+├── payments/     # Payment processing
+├── products/     # Product model
+├── templates/    # Shared templates
+└── users/        # Authentication views
+```
 
 ## Routes
 
-| Path       | View              | Permision                                       |
-| ---------- | ----------------- | ----------------------------------------------- |
-| `/`        | catalog.catalog   | Public (anyone can acces to this url)           |
-| `/admin/`  | admin site        | Private needs a superuser staff                 |
-| `/signup/` | users.signup_view | Public (anyone can signup)                      |
-| `/signin/` | users.signin_view | Public (anyone can signin within account)       |
-| `/logout/` | users.logout_view | Private (needs auth)                            |
-| `/cart/`   | cart.cart_view    | Public (anyone can acces add a shopping cart)   |
+| Path       | View              | Description                |
+| ---------- | ----------------- | ------------------------- |
+| `/`        | catalog.catalog  | Product catalog          |
+| `/admin/`  | admin site       | Django admin panel       |
+| `/signup/` | users.signup_view | User registration        |
+| `/signin/` | users.signin_view | User login              |
+| `/logout/` | users.logout_view | User logout             |
 
-## Admin routes
+## Setup
 
-- `admin/products/` - Product model (name, price, description, is_active)
-- `admin/orders/` - Pedido model (customer_id FK to User, date, total)
-- `admin/inventory/` - inventory tracking
-- `admin/payments/` - payment processing
-- `admin/cart/` - shopping cart
-- `admin/users/` - auth views (signup, signin, logout)
-- `admin/catalog/` - product catalog view
+```bash
+# Activate virtual environment
+.\venv\Scripts\python manage.py shell
 
+# Run migrations
+python manage.py migrate
 
+# Create superuser
+python manage.py createsuperuser
+
+# Start server
+python manage.py runserver
+```
+
+## Known Issues
+
+- **settings.py:126** - `LOGIN_URL` has a typo: `/sigin/` should be `/signin/`

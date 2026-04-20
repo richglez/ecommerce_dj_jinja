@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "products",
     "inventory",
     "catalog",
+    "django.contrib.humanize",
 ]
 
 MIDDLEWARE = [

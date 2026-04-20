@@ -4,8 +4,10 @@ from django.urls import path
 from users import views as user_views
 from catalog import views as catalog_views
 from cart import views as cart_views
+from inventory import urls as inventory_urls
 
 urlpatterns = [
+    path("", include(inventory_urls)),
     path("admin/", admin.site.urls),
     path("signup/", user_views.signup_view, name="signup"),
     path("signin/", user_views.signin_view, name="signin"),

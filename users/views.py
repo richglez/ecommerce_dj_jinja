@@ -3,6 +3,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.decorators import login_required
 
 
 def signup_view(request):
@@ -64,9 +65,10 @@ def signin_view(request):
         else:
             # Guardar su sesion
             login(request, user)
-            return redirect("index") # Redireccionalo a la pagina principal
+            return redirect("index")  # Redireccionalo a la pagina principal
 
 
+@login_required
 def logout_view(request):
     logout(request)
     return redirect("index")

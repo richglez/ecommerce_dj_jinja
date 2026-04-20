@@ -125,3 +125,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 LOGIN_URL = "/sigin/"
+
+STRIPE_SECRET_KEY = "sk_test_your_key_here"
+STRIPE_PUBLISHABLE_KEY = "pk_test_your_key_here"
+STRIPE_WEBHOOK_SECRET = "whsec_your_webhook_secret"

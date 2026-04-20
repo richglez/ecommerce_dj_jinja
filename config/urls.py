@@ -4,7 +4,9 @@ from django.urls import path
 from users import views as user_views
 from catalog import views as catalog_views
 from cart import views as cart_views
+from payments import urls as payments_urls
 from inventory import urls as inventory_urls
+from orders import urls as orders_urls
 
 urlpatterns = [
     path("", include(inventory_urls)),
@@ -16,5 +18,7 @@ urlpatterns = [
     path("cart/add/<int:product_id>/", cart_views.add_to_cart, name="add_to_cart"),
     path("cart/remove/<int:product_id>/", cart_views.remove_from_cart, name="remove_from_cart"),
     path("cart/update/<int:product_id>/", cart_views.update_cart, name="update_cart"),
+    path("payments/", include(payments_urls)),
+    path("orders/", include(orders_urls)),
     path("", catalog_views.catalog, name="index"),
 ]

@@ -1,11 +1,16 @@
 {% extends "base.html" %} {% block content %}
+<main class="container py-5">
+    <div class="row">
+            <section class="card card-body">
+        <h1>Catalog</h1>
 
-<h1>Catalog</h1>
-
-{% for product in products %}
-<div>
-    <h2>{{ product.name }}</h2>
-    <p>${{ product.price }}</p>
-    <p>{{ product.description }}</p>
-</div>
-{% endfor %} {% endblock %}
+        {% for product in products %}
+        <div class="card card-body">
+            <h2 class="card-title">{{ product.name }}</h2>
+            <p>${{ product.price }}</p>
+            <p>{{ product.description }}</p>
+        </div>
+        {% endfor %} {% endblock %}
+    </section>
+    </div>
+</main>

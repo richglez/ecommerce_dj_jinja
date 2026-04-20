@@ -22,15 +22,16 @@ This is a ecommerce project scalable, using authentication. MVT (Model-View-Temp
 ```
 
 
-## User Routes
+## Routes
 
-| Path       | View              |
-| ---------- | ----------------- |
-| `/`        | catalog.catalog   |
-| `/admin/`  | admin site        |
-| `/signup/` | users.signup_view |
-| `/signin/` | users.signin_view |
-| `/logout/` | users.logout_view |
+| Path       | View              | Permision                                       |
+| ---------- | ----------------- | ----------------------------------------------- |
+| `/`        | catalog.catalog   | Public (anyone can acces to this url)           |
+| `/admin/`  | admin site        | Private needs a superuser staff                 |
+| `/signup/` | users.signup_view | Public (anyone can signup)                      |
+| `/signin/` | users.signin_view | Public (anyone can signin within account)       |
+| `/logout/` | users.logout_view | Private (needs auth)                            |
+| `/cart/`   | cart.cart_view    | Public (anyone can acces add a shopping cart)   |
 
 ## Admin routes
 
